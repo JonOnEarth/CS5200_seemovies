@@ -1,0 +1,23 @@
+{% extends 'movie/base.html' %}
+{% block title %}detail{% endblock %}
+{% block body %}
+
+
+    <div>
+    {% if allmovie %}
+        <div class="container-fluid">
+            <h3>Here are all the movies:</h3>
+            {% for movie in allmovie %}
+                <div class="col-sm-4 col-lg-2">
+                    <div class="thumbnail">
+                        <img src="{{ movie.posterlink }}" style="height: 220px;">
+                        <div class="caption">
+                            <a href= "/movie/{{ movie.id }}/type/{{ type_id }}/id/{{ user_id }}">{{ movie.title}}</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+{% endblock %}

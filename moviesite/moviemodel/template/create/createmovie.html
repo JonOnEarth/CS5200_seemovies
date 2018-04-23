@@ -1,0 +1,49 @@
+{% extends 'movie/base.html' %}
+{% block title %}createmovie{% endblock %}
+{% block body %}
+
+<div class="container-fluid">
+
+    <div class="row">
+
+        <div class="col-sm-12 col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h3>Add a New Movie</h3>
+                    {% if error_message %}
+                        <p><strong>{{ error_message }}</strong></p>
+                    {% endif %}
+                    {% csrf_token %}
+                     <form class="form-horizontal" action="/login/{{ user_id }}/createmovie/finish/" method="get">
+                         <div class="form-group">
+                            Title:<input type="text" name="title" class="form-control" placeholder="Enter title">
+                         </div>
+                         <div class="form-group">
+                            Description:<input type="text" name="description" class="form-control" placeholder="Enter description">
+                         </div>
+                         <div class="form-group">
+                            Posterlink:<input type="text" name="posterlink" class="form-control" placeholder="Enter posterlink">
+                         </div>
+                         <div class="form-group">
+                            Actor:<input type="text" name="actorf"class="form-control" placeholder="Enter firstName"><input type="text" name="actorl" class="form-control" placeholder="Enter lastName">
+                         </div>
+                         <div class="form-group">
+                            Director:<input type="text" name="directorf" class="form-control" placeholder="Enter firstName"><input type="text" name="directorl" class="form-control" placeholder="Enter lastName">
+                         </div>
+                         <div class="form-group">
+                            Category:<input type="text" name="category" class="form-control" placeholder="Enter category">
+                         </div>
+                         <div class="form-group">
+                            Link:<input type="text" name="link" class="form-control" placeholder="Enter watchlink">
+                         </div>
+                         <div class="form-group">
+                            <input type="submit" value="add movie">
+                         </div>
+                     </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

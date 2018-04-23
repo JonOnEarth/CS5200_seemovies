@@ -1,0 +1,17 @@
+{% extends 'movie/base.html' %}
+{% block title %}edit Movies reviews{% endblock %}
+{% block body %}
+<h2>
+    {% if movies %}
+        <ul>
+            {% for movie in movies%}
+                <li>
+                    {{ movie.title }}
+                    <a href="/login/editor/manageallmovie/delete/{{ movie.id }}/"><button type="button" class="btn btn-danger">delete</button></a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</h2>
+
+{% endblock %}

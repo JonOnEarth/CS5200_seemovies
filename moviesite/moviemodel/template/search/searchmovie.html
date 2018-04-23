@@ -1,0 +1,26 @@
+{% extends 'movie/base.html' %}
+{% block title %}Search Movies{% endblock %}
+{% block body %}
+<body>
+
+    {% if not type_id %}
+    <div class="container">
+    <h2>Input Movie's Title</h2>
+    <form action="/movieresult/" method="get">
+        <input type="text" name="movietitle">
+        <input type="submit" value="search">
+    </form>
+    </div>
+    {% else%}
+    <div class="container">
+    <h2>Input Movie's Title</h2>
+    <form action="/movieresult/type/{{ type_id }}/id/{{ user_id }}/" method="get">
+        <input type="text" name="movietitle">
+        <input type="submit" value="search">
+    </form>
+    </div>
+    {% endif %}
+
+</body>
+
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'movie/base.html' %}
+{% block title %}category{% endblock %}
+{% block body %}
+
+
+    {% if create %}
+        <ul>
+            {% for create in create%}
+                <li>
+                    title:"{{ create.movie.title }}"
+                    breif intro: "{{ create.movie.id }}"+"{{ create.movie.description }}"
+                    <a href="delete/{{ create.movie.id }}/">delete</a>
+                </li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <div>you don't upload the any movie</div>
+
+
+    {% endif %}
+
+{% endblock %}

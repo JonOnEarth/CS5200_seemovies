@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Search</title>
+</head>
+<h2>Search Category</h2>
+
+<body>
+
+    {% if allcategory %}
+        <ul>
+            {% for category in allcategory %}
+                <li>
+                    <a href= "/category/{{ category.id }}/">{{ category.name }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+</body>
+</html>

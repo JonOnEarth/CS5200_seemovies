@@ -1,0 +1,32 @@
+{% extends 'movie/base.html' %}
+{% block title %}director_detail{% endblock %}
+{% block body %}
+
+<div class="albums-container container-fluid">
+        <div class="container">
+            <div class="thumbnail">
+                <h3>Director
+                <a href= "/director/{{ director.id }}/">{{ director.firstname }} {{ director.lastname }}</a>
+                </h3>
+                <p>
+                    {{ director.description }}
+                </p>
+                <div class="caption">
+                    <h3>Movies Directed: </h3>
+                </div>
+            </div>
+        </div>
+        <div class=container>
+            {% for movie in directmovie %}
+                <div class="col-sm-4 col-lg-2">
+                    <div class="thumbnail">
+                        <img src="{{ movie.posterlink }}" class="img-responsive">
+                        <div class="caption">
+                            <a href="/movie/{{ movie.id }}/type//id/">{{ movie.title}}</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+</div>
+{% endblock %}

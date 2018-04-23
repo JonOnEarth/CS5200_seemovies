@@ -1,0 +1,18 @@
+{% extends 'movie/base.html' %}
+{% block title %}createreviews{% endblock %}
+{% block body %}
+
+
+<body>
+<div class="container">
+    <h2>Create a new review</h2>
+    <form action="/movie/{{ movie_id }}/type/{{ type_id }}/id/{{ user_id }}/reviewcreated" method="get">
+        <div class="form-group">
+            <input name="reviewcontent" class="form-control input-lg">
+        </div>
+        <input type="submit" value="add review">
+    </form>
+</div>
+</body>
+
+{% endblock %}

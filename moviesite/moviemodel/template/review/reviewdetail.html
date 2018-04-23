@@ -1,0 +1,16 @@
+{% extends 'movie/base.html' %}
+{% block title %}Movies{% endblock %}
+{% block body %}
+<h2>
+{#    {% if not reviews %}#}
+{#        <li>no reviews added</li>#}
+{#    {% endif %}#}
+    {% if reviews %}
+        <ul>
+            {% for review in reviews %}
+                <li>{{ review.content }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</h2>
+{% endblock %}

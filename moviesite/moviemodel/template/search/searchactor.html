@@ -1,0 +1,16 @@
+{% extends 'movie/base.html' %}
+{% block title %}Search Actor{% endblock %}
+{% block body %}
+<body>
+<div class="container">
+    <h2>Input Actor's Name</h2>
+    <form action="/actorresult/" method="get">
+        <div class="form-group">
+        <input type="text" name="actorname">
+            </div>
+        <input type="submit" value="search">
+    </form>
+</div>
+</body>
+
+{% endblock %}

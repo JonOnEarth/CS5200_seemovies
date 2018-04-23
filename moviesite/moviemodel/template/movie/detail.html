@@ -1,0 +1,63 @@
+{% extends 'movie/base.html' %}
+{% block title %}detail{% endblock %}
+{% block body %}
+
+
+<div class="albums-container container-fluid">
+        <div class="row">
+            <div class="col-sm-6 col-lg-4">
+                <div class="thumbnail">
+                    <img src="{{ movie.posterlink }}" class="img-responsive">
+                    <div class="caption">
+                        <h3>{{ movie.title}}</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8 col-lg-6">
+                <ul>Category:
+                    {% for category in movie.category.all %}
+                       <a href= "/category/{{ category.id }}/">{{ category.name }}</a>,
+                   {% endfor %}
+                </ul>
+
+                <ul>plot: {{ movie.description }}</ul>
+
+                <ul>Director:
+                   {% for director in movie.director.all %}
+                      <a href= "/director/{{ director.id }}/">{{ director.firstname }} {{ director.lastname }}</a>,
+                   {% endfor %}
+                </ul>
+
+                <ul>Actor:
+                   {% for actor in movie.actor.all %}
+                       <a href= "/actor/{{ actor.id }}/">{{ actor.firstname }} {{ actor.lastname }}</a>,
+                   {% endfor %}
+                </ul>
+                <ul>Watchlink:
+                    {% if type_id == '5' %}
+                        <a href={{ movie.watchlink }}>{{ movie.watchlink }}</a>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+
+        <div class="container">
+            {% if not reviews %}
+                <li>no reviews added</li>
+            {% endif %}
+            {% if reviews %}
+                <ul>
+                    {% for review in reviews %}
+                        <li>{{ review.content }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
+{#            <li><a href="/movie/{{ movie.id }}/review">review detail</a></li>#}
+            {% if type_id %}
+            <li><a href="/movie/{{ movie.id }}/type/{{ type_id }}/id/{{ user_id }}/createreview">create a new review</a></li>
+            {% endif %}
+        </div>
+
+</div>
+{% endblock %}

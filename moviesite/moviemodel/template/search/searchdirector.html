@@ -1,0 +1,16 @@
+{% extends 'movie/base.html' %}
+{% block title %}Search Director{% endblock %}
+{% block body %}
+<body>
+<div class="container">
+    <h2>Input Director's Name</h2>
+    <form action="/directorresult/" method="get">
+        <div class="form-group">
+        <input type="text" name="directorname">
+            </div>
+        <input type="submit" value="search">
+    </form>
+</div>
+</body>
+
+{% endblock %}

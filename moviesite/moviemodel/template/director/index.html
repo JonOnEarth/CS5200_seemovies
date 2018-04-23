@@ -1,0 +1,16 @@
+{% extends 'movie/base.html' %}
+{% block title %}createmovie{% endblock %}
+{% block body %}
+
+<h2>
+    {% if alldirector %}
+        <ul>
+            {% for director in alldirector %}
+                <li>
+                    <a href= "/director/{{ director.id }}/">{{ director.firstname }} {{ director.lastname }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</h2>
+{% endblock %}

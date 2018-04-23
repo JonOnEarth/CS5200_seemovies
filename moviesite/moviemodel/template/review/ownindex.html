@@ -1,0 +1,18 @@
+{% extends 'movie/base.html' %}
+{% block title %}Reviews{% endblock %}
+{% block body %}
+
+<h2>
+    {% if reviews %}
+        <ul>
+            {% for review in reviews%}
+                <li>
+                    review:"{{ review.content }}"
+                    on {{ review.movie.title }}
+                    <a href="/login/{{ review.user.id }}/managereview/delete/{{ review.id }}/">delete</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</h2>
+{% endblock %}

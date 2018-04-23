@@ -1,0 +1,17 @@
+{% extends 'movie/base.html' %}
+{% block title %}index{% endblock %}
+{% block body %}
+<body>
+<h2>
+    {% if allactor %}
+        <ul>
+            {% for actor in allactor %}
+                <li>
+                    <a href= "/actor/{{ actor.id }}/">{{ actor.firstname }} {{ actor.lastname }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</h2>
+</body>
+{% endblock %}

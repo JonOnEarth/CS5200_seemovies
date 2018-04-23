@@ -1,0 +1,29 @@
+
+{% extends 'movie/base.html' %}
+{% block title %}Reviews{% endblock %}
+{% block body %}
+
+<div class="container">
+<p> Carefully Delete the movie reviews that are not appropriate</p>
+    {% if reviews %}
+        <div class="default">
+            {% for review in reviews%}
+                <h4>
+                <div class="container">
+                    <div class="default" >
+                    Review Content: "{{ review.content }}"
+                    </div>
+                    <div class="default">
+                    on Movie "{{ review.movie.title }}"
+                    </div>
+                    <div class="default">
+                        Reviewer:"{{ review.user.username }}"
+                    </div>
+                    <a href="/login/editor/manageallreviews/delete/{{ review.id }}/"><button type="button" class="btn btn-danger">delete</button></a>
+                </div>
+                </h4>
+            {% endfor %}
+        </div>
+    {% endif %}
+</div>
+{% endblock %}
